@@ -33,7 +33,6 @@ export const Start = (props) => {
   return (
     <Styling>
       <div className="hero-container">
-        <span>Exercise Questionaire</span>
         <h1>Habe ich eine Depression?</h1>
         <p className="lead">
           Grundlage dieses Tests ist der PHQ-9-Fragebogen, der als Screening

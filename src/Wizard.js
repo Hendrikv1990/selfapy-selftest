@@ -14,19 +14,48 @@ import { createYupSchema } from './yupSchemaCreator'
 import { wizardData } from './wizardData'
 gsap.registerPlugin(CSSPlugin)
 
-// const PartSchema = (props = yup.object().shape({
-//   part1: yup.string().required('Please choose on of the options'),
-// }))
+const Part1Schema = yup.object().shape({
+  part1: yup.string().required('Please choose on of the options'),
+})
 
-const PartSchema = (props) => {
-  return yup.lazy((values) => {
-    console.log(values)
-    if (values)
-      return yup.object().shape({
-        // part: yup.string().required('Please choose one of the options'),
-      })
-  })
-}
+const Part2Schema = yup.object().shape({
+  part2: yup.string().required('Please choose on of the options'),
+})
+
+const Part3Schema = yup.object().shape({
+  part3: yup.string().required('Please choose on of the options'),
+})
+const Part4Schema = yup.object().shape({
+  part4: yup.string().required('Please choose on of the options'),
+})
+
+const Part5Schema = yup.object().shape({
+  part5: yup.string().required('Please choose on of the options'),
+})
+const Part6Schema = yup.object().shape({
+  part6: yup.string().required('Please choose on of the options'),
+})
+const Part7Schema = yup.object().shape({
+  part7: yup.string().required('Please choose on of the options'),
+})
+
+const Part8Schema = yup.object().shape({
+  part8: yup.string().required('Please choose on of the options'),
+})
+
+const Part9Schema = yup.object().shape({
+  part9: yup.string().required('Please choose on of the options'),
+})
+
+// const Part1Schema = (props) => {
+//   return yup.lazy((values) => {
+//     console.log(values)
+//     if (values)
+//       return yup.object().shape({
+//         // part: yup.string().required('Please choose one of the options'),
+//       })
+//   })
+// }
 
 const Styling = styled.div.attrs({
   className: 'wrapper',
@@ -159,7 +188,18 @@ class Wizard extends Component {
   // }
 
   getValidationSchema = (page) => {
-    const validationSchemas = [null, PartSchema]
+    const validationSchemas = [
+      null,
+      Part1Schema,
+      Part2Schema,
+      Part3Schema,
+      Part4Schema,
+      Part5Schema,
+      Part6Schema,
+      Part7Schema,
+      Part8Schema,
+      Part9Schema,
+    ]
     return validationSchemas[page]
   }
 
@@ -228,7 +268,7 @@ class Wizard extends Component {
                 </TransitionGroup>
               </div>
 
-              {process.env.NODE_ENV === 'development' && <Debug />}
+              {/* {process.env.NODE_ENV === 'development' && <Debug />} */}
             </form>
           )}
         />

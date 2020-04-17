@@ -85,8 +85,6 @@ const Styling = styled.div.attrs({
     }
   }
   .field-wrapper {
-    margin: 1rem;
-
     margin-bottom: 45px;
     position: relative;
     input {
@@ -166,7 +164,6 @@ export const Part = ({
 }) => {
   return (
     <Styling>
-      <span>Exercise Questionaire</span>
       <div className="row-container">
         <h3>
           <FormattedMessage id="form.part.h1">

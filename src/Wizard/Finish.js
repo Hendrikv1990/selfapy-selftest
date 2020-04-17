@@ -39,7 +39,6 @@ export const Finish = (props) => {
   return (
     <Styling>
       <div className="hero-container">
-        <span>Exercise Questionaire</span>
         <h3>{`Great job! Your score is ${props.score}`}.</h3>
         <p className="lead">
           {`This means that your depression level is ${level()}`}

@@ -42,8 +42,6 @@ input:-webkit-autofill {
         outline:none !important;
     }
   h1 {
-      font-family: 'Archivo', sans-serif;
-      height: 40px;
       font-family: Archivo;
       font-size: 32px;
       font-weight: 600;
