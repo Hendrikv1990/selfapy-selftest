@@ -1,6 +1,7 @@
 {
   "name": "selfapy-selftest",
   "version": "0.1.0",
+  "homepage": "/wp-content/plugins/selfapy-selftest/selfapy-selftest/build",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.4",
