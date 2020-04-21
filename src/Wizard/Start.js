@@ -29,7 +29,7 @@ const Styling = styled.div.attrs({
   }
 `
 
-export const Start = (props) => {
+export const Start = React.memo((props) => {
   return (
     <Styling>
       <div className="hero-container">
@@ -44,6 +44,6 @@ export const Start = (props) => {
       <div className="image-wrapper"></div>
     </Styling>
   )
-}
+})
 
 export default Start

@@ -18,6 +18,7 @@ export default {
       shop: 'ZUM SHOP',
     },
     button: {
+      subscribe: 'Subscribe',
       start: 'Start',
       next: 'Next',
       form: {

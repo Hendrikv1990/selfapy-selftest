@@ -1,11 +1,10 @@
 import React from 'react'
-// import { ReactComponent as AddSVG } from '../assets/add.svg'
+import { useIntl } from 'react-intl'
+import Select from 'react-select'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
 import Start from './Start'
-import Select from 'react-select'
-import { useIntl } from 'react-intl'
 
 const Styling = styled.div.attrs({
   className: 'form-container',
@@ -17,6 +16,7 @@ const Styling = styled.div.attrs({
   .row-container {
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
   }
   .column-container {
     flex: 0 1 100%;
@@ -88,9 +88,7 @@ const Styling = styled.div.attrs({
       width: 90%;
     }
   }
-  /* .error {
-    border-color: #ff2843 !important;
-  } */
+
   .react-select__control {
     font-family: Archivo;
     font-size: 14px;
@@ -140,58 +138,61 @@ const Styling = styled.div.attrs({
   }
 `
 
-export const Part = ({
-  errors,
-  touched,
-  values,
-  handleChange,
-  handleBlur,
-  parts,
-  setFieldTouched,
-  setFieldValue,
-}) => {
-  const intl = useIntl()
+export const Part = React.memo(
+  ({
+    errors,
+    touched,
+    values,
+    handleChange,
+    handleBlur,
+    parts,
+    setFieldTouched,
+    setFieldValue,
+  }) => {
+    const intl = useIntl()
 
-  return (
-    <Styling>
-      <Start />
-      <div className="row-container">
-        <h3>
-          <FormattedMessage id="form.part.h1">
-            {(message) => message}
-          </FormattedMessage>
-        </h3>
-      </div>
-      {parts.map((part, index) => {
-        return (
-          <div className="row-container" key={index}>
-            <div className="field-wrapper width-50 question-wrapper">
-              <h4 className="question">{part.question}</h4>
+    return (
+      <Styling>
+        <Start />
+        <div className="row-container">
+          <h3>
+            <FormattedMessage id="form.part.h1">
+              {(message) => message}
+            </FormattedMessage>
+          </h3>
+        </div>
+        {parts.map((part, index) => {
+          return (
+            <div className="row-container" key={index}>
+              <div className="field-wrapper width-50 question-wrapper">
+                <h4 className="question">{part.question}</h4>
+              </div>
+              <div className="field-wrapper width-50">
+                <Select
+                  id={part.name}
+                  onBlur={() => setFieldTouched(part.name, true)}
+                  onChange={(value) => {
+                    return setFieldValue(part.name, value)
+                  }}
+                  name={part.name}
+                  options={part.answers}
+                  value={values[part.name]}
+                  classNamePrefix={`${
+                    errors[part.name] && touched[part.name] ? 'error' : ''
+                  } react-select`}
+                  placeholder={intl.messages['form.select.placeholder']}
+                  // menuIsOpen
+                />
+                {errors[part.name] && touched[part.name] && (
+                  <div className="field-error">{errors[part.name]}</div>
+                )}
+              </div>
             </div>
-            <div className="field-wrapper width-50">
-              <Select
-                id={part.name}
-                onBlur={() => setFieldTouched(part.name, true)}
-                onChange={(value) => {
-                  return setFieldValue(part.name, value)
-                }}
-                name={part.name}
-                options={part.answers}
-                value={values[part.name]}
-                classNamePrefix={`${
-                  errors[part.name] && touched[part.name] ? 'error' : ''
-                } react-select`}
-                placeholder={intl.messages['form.select.placeholder']}
-              />
-              {errors[part.name] && touched[part.name] && (
-                <div className="field-error">{errors[part.name]}</div>
-              )}
-            </div>
-          </div>
-        )
-      })}
-    </Styling>
-  )
-}
+          )
+        })}
+      </Styling>
+    )
+  },
+)
 
 export default Part

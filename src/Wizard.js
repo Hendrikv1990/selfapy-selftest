@@ -8,7 +8,7 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import { device } from './assets/Styles'
-import Debug from './Debug'
+// import Debug from './Debug'
 import Footer from './Footer'
 import { wizardData } from './wizardData'
 gsap.registerPlugin(CSSPlugin)
@@ -63,10 +63,9 @@ class Wizard extends Component {
 
   constructor(props) {
     super(props)
-    this.mainRef = React.createRef()
     this.state = {
       score: 0,
-      page: 0,
+      page: 1,
       dimensions: {
         width: 0,
         height: 0,
@@ -75,14 +74,15 @@ class Wizard extends Component {
   }
 
   onResizeDebounced = debounce(() => {
-    if (this.mainRef.current != null) {
-      this.setState({
-        dimensions: {
-          height: this.mainRef.current.clientHeight,
-          width: this.mainRef.current.clientWidth,
-        },
-      })
-    }
+    const element = document.querySelector('.main-container')
+    console.log(element)
+
+    this.setState({
+      dimensions: {
+        height: element.clientHeight,
+        width: element.clientWidth,
+      },
+    })
   }, 400)
 
   onResize = () => {
@@ -158,15 +158,24 @@ class Wizard extends Component {
 
   animateOnEnter = (node) => {
     const timeline = new TimelineLite()
-    return timeline.from(
-      node,
-      0.5,
-      {
-        ease: Power3.easeInOut,
-        autoAlpha: 0,
-      },
-      '+=0.5',
-    )
+    return timeline
+      .from(
+        node,
+        0.5,
+        {
+          ease: Power3.easeInOut,
+          autoAlpha: 0,
+        },
+        '+=0.5',
+      )
+      .call(
+        () => {
+          this.onResize()
+        },
+        null,
+        this,
+        '-=1',
+      )
   }
 
   animateOnExit = (node) => {
@@ -184,7 +193,6 @@ class Wizard extends Component {
     wizardData.forEach((obj) => {
       initialValues[obj.name] = obj.value || ''
     })
-    // const isLastPage = page === React.Children.count(children) - 1
     return (
       <Styling mainHeight={this.state.dimensions.height}>
         <Formik
@@ -193,22 +201,25 @@ class Wizard extends Component {
           enableReinitialize={false}
           validate={this.validate}
           onSubmit={this.handleSubmit}
-          render={(props) => (
+        >
+          {(props) => (
             <form onSubmit={props.handleSubmit}>
               <div className="main-wrapper">
                 <TransitionGroup component={null}>
                   <Transition
                     appear
                     key={this.state.page}
-                    onEntered={this.onResize()}
                     onEnter={(node) => this.animateOnEnter(node)}
                     onExit={(node) => this.animateOnExit(node)}
                     timeout={500}
                     unmountOnExit
                   >
-                    <div className="main-container" ref={this.mainRef}>
+                    <div className="main-container">
                       {React.cloneElement(activePage, {
-                        parentState: { ...props, score },
+                        parentState: {
+                          ...props,
+                          score,
+                        },
                       })}
                       <Footer
                         width={this.state.dimensions.width}
@@ -221,10 +232,10 @@ class Wizard extends Component {
                 </TransitionGroup>
               </div>
 
-              {process.env.NODE_ENV === 'development' && <Debug />}
+              {/* {process.env.NODE_ENV === 'development' && <Debug />} */}
             </form>
           )}
-        />
+        </Formik>
       </Styling>
     )
   }

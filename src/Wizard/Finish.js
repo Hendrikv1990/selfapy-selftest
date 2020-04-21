@@ -1,5 +1,4 @@
 import React from 'react'
-import { useIntl } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
 
@@ -47,14 +46,13 @@ const Styling = styled.div.attrs({
   }
 `
 
-export const Finish = (props) => {
+export const Finish = React.memo((props) => {
   const level = () => {
     if (props.score < 5) return 'keine depressiven Anzeichen'
     if (props.score < 15) return 'leichtgradige Depression'
     if (props.score < 20) return 'mittelgradige Depression'
     if (props.score < 28) return 'schwergradige Depression'
   }
-  const intl = useIntl()
 
   return (
     <Styling>
@@ -67,6 +65,6 @@ export const Finish = (props) => {
       <div className="image-wrapper"></div>
     </Styling>
   )
-}
+})
 
 export default Finish

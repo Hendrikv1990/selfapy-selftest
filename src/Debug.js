@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormikConsumer } from 'formik'
 
-export const Debug = () => (
+export const Debug = React.memo(() => (
   <div
     style={{
       margin: '3rem 1rem',
@@ -39,6 +39,6 @@ export const Debug = () => (
       )}
     </FormikConsumer>
   </div>
-)
+))
 
 export default Debug

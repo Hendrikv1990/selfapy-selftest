@@ -4,7 +4,11 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 const rootElement = document.getElementById('root')
-
+// if (process.env.NODE_ENV !== 'production') {
+//   import('why-did-you-update').then((module) => {
+//     module.whyDidYouUpdate(React)
+//   })
+// }
 // https://web.dev/prerender-with-react-snap/
 if (rootElement.hasChildNodes()) {
   hydrate(<App />, rootElement)

@@ -1,7 +1,7 @@
 import { Field } from 'formik'
 import React from 'react'
 
-const Error = ({ name }) => (
+const Error = React.memo(({ name }) => (
   <Field name={name}>
     {({ form: { touched, errors } }) =>
       touched[name] && errors[name] ? (
@@ -9,6 +9,6 @@ const Error = ({ name }) => (
       ) : null
     }
   </Field>
-)
+))
 
 export default Error
