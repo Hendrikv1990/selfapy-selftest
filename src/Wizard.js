@@ -66,7 +66,7 @@ class Wizard extends Component {
     this.mainRef = React.createRef()
     this.state = {
       score: 0,
-      page: 1,
+      page: 0,
       dimensions: {
         width: 0,
         height: 0,
@@ -137,8 +137,10 @@ class Wizard extends Component {
     if (beforeLastPage) {
       let sum = 0
       for (let [key, value] of Object.entries(values)) {
-        console.log(`${key}: ${value.value}`)
-        sum = sum + Number(value.value)
+        if (!(key === 'email')) {
+          console.log(`${key}: ${value.value}`)
+          sum = sum + Number(value.value)
+        }
       }
       this.setState({ score: sum })
       this.next(values)
