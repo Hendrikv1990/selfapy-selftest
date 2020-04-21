@@ -49,7 +49,7 @@ export const Footer = React.memo(({ page, children, previous, width }) => {
       <div className="item pagination">
         <div className="pagination-wrapper">
           <div className="pagination-container">
-            {page > 0 && `${page}/${children.length - 1}`}
+            {page >= 0 && `${page + 1}/${children.length}`}
           </div>
         </div>
       </div>
@@ -117,10 +117,10 @@ export const Footer = React.memo(({ page, children, previous, width }) => {
       {page === 1 && width > sizes.phone && (
         <SimpleButton className="hidden" name="button.start" />
       )}
-      {page === 0 && <SubmitButton name="button.start" />}
+      {/* {page === 0 && <SubmitButton name="button.start" />} */}
       {page > 1 && <SimpleButton name="button.back" />}
       <Pagination />
-      {page > 0 && page < 10 && <SubmitButton name="button.next" />}
+      {page >= 0 && page < 1 && <SubmitButton name="button.next" />}
     </Styling>
   )
 })

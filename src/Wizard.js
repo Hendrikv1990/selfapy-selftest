@@ -7,55 +7,23 @@ import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
 import * as yup from 'yup'
+import { device } from './assets/Styles'
 import Debug from './Debug'
 import Footer from './Footer'
-import { device } from './assets/Styles'
-import { createYupSchema } from './yupSchemaCreator'
 import { wizardData } from './wizardData'
 gsap.registerPlugin(CSSPlugin)
 
-const Part1Schema = yup.object().shape({
+const PartSchema = yup.object().shape({
   part1: yup.string().required('Please choose on of the options'),
-})
-
-const Part2Schema = yup.object().shape({
   part2: yup.string().required('Please choose on of the options'),
-})
-
-const Part3Schema = yup.object().shape({
   part3: yup.string().required('Please choose on of the options'),
-})
-const Part4Schema = yup.object().shape({
   part4: yup.string().required('Please choose on of the options'),
-})
-
-const Part5Schema = yup.object().shape({
   part5: yup.string().required('Please choose on of the options'),
-})
-const Part6Schema = yup.object().shape({
   part6: yup.string().required('Please choose on of the options'),
-})
-const Part7Schema = yup.object().shape({
   part7: yup.string().required('Please choose on of the options'),
-})
-
-const Part8Schema = yup.object().shape({
   part8: yup.string().required('Please choose on of the options'),
-})
-
-const Part9Schema = yup.object().shape({
   part9: yup.string().required('Please choose on of the options'),
 })
-
-// const Part1Schema = (props) => {
-//   return yup.lazy((values) => {
-//     console.log(values)
-//     if (values)
-//       return yup.object().shape({
-//         // part: yup.string().required('Please choose one of the options'),
-//       })
-//   })
-// }
 
 const Styling = styled.div.attrs({
   className: 'wrapper',
@@ -159,12 +127,10 @@ class Wizard extends Component {
 
   handleSubmit = (values) => {
     const { children } = this.props
-    const { page, score } = this.state
+    const { page } = this.state
     const beforeLastPage = page === React.Children.count(children) - 2
     const lastPage = page === React.Children.count(children) - 1
-    console.log(beforeLastPage)
     if (beforeLastPage) {
-      console.log(values)
       let sum = 0
       for (let [key, value] of Object.entries(values)) {
         console.log(`${key}: ${value}`)
@@ -179,27 +145,8 @@ class Wizard extends Component {
     }
   }
 
-  // getValidationSchema = (page) => {
-  //   if (page === 0) {
-  //     return 0
-  //   } else {
-  //     return PartSchema
-  //   }
-  // }
-
   getValidationSchema = (page) => {
-    const validationSchemas = [
-      null,
-      Part1Schema,
-      Part2Schema,
-      Part3Schema,
-      Part4Schema,
-      Part5Schema,
-      Part6Schema,
-      Part7Schema,
-      Part8Schema,
-      Part9Schema,
-    ]
+    const validationSchemas = [PartSchema]
     return validationSchemas[page]
   }
 
@@ -268,7 +215,7 @@ class Wizard extends Component {
                 </TransitionGroup>
               </div>
 
-              {/* {process.env.NODE_ENV === 'development' && <Debug />} */}
+              {process.env.NODE_ENV === 'development' && <Debug />}
             </form>
           )}
         />

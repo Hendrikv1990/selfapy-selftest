@@ -11,7 +11,7 @@ const Styling = styled.div.attrs({
   }
   margin-bottom: 3rem;
   .hero-container {
-    flex: 0 1 50%;
+    flex: 0 1 100%;
 
     span {
       font-family: Archivo;

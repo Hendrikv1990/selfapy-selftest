@@ -9,6 +9,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
+import Start from './Start'
 
 const StyledFormControlLabel = withStyles({
   root: {},
@@ -79,7 +80,7 @@ const Styling = styled.div.attrs({
     width: 100%;
   }
   .column-container {
-    flex: 0 1 50%;
+    flex: 0 1 100%;
     @media ${device.tablet} {
       flex: 0 1 100%;
     }
@@ -160,10 +161,11 @@ export const Part = ({
   values,
   handleChange,
   handleBlur,
-  object,
+  parts,
 }) => {
   return (
     <Styling>
+      <Start />
       <div className="row-container">
         <h3>
           <FormattedMessage id="form.part.h1">
@@ -171,39 +173,43 @@ export const Part = ({
           </FormattedMessage>
         </h3>
       </div>
-      <div className="row-container">
-        <div className="field-wrapper width-100">
-          <h4>{object.question}</h4>
-          <RadioGroup aria-label={object.name}>
-            <FieldArray
-              name={object.name}
-              render={(arrayHelpers) => (
-                <div>
-                  {object.answers.map((ans) => (
-                    <div key={ans.value}>
-                      <StyledFormControlLabel
-                        control={
-                          <StyledRadio
-                            name={object.name}
-                            value={ans.value}
-                            checked={values[object.name] === ans.value}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+      {parts.map((part, index) => {
+        return (
+          <div className="row-container">
+            <div className="field-wrapper width-100">
+              <h4>{part.question}</h4>
+              <RadioGroup aria-label={part.name}>
+                <FieldArray
+                  name={part.name}
+                  render={(arrayHelpers) => (
+                    <div>
+                      {part.answers.map((ans) => (
+                        <div key={ans.value}>
+                          <StyledFormControlLabel
+                            control={
+                              <StyledRadio
+                                name={part.name}
+                                value={ans.value}
+                                checked={values[part.name] === ans.value}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                              />
+                            }
+                            label={ans.label}
                           />
-                        }
-                        label={ans.label}
-                      />
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  )}
+                />
+              </RadioGroup>
+              {errors[part.name] && touched[part.name] && (
+                <div className="field-error">{errors[part.name]}</div>
               )}
-            />
-          </RadioGroup>
-          {errors[object.name] && (
-            <div className="field-error">{errors[object.name]}</div>
-          )}
-        </div>
-      </div>
+            </div>
+          </div>
+        )
+      })}
     </Styling>
   )
 }
