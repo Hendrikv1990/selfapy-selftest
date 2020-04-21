@@ -175,7 +175,7 @@ export const Part = ({
       </div>
       {parts.map((part, index) => {
         return (
-          <div className="row-container">
+          <div className="row-container" key={index}>
             <div className="field-wrapper width-100">
               <h4>{part.question}</h4>
               <RadioGroup aria-label={part.name}>
