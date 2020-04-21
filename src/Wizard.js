@@ -25,6 +25,10 @@ const PartSchema = yup.object().shape({
   part9: yup.string().required('Please choose on of the options'),
 })
 
+const EmailSchema = yup.object().shape({
+  email: yup.string().email().required('Email is required'),
+})
+
 const Styling = styled.div.attrs({
   className: 'wrapper',
 })`
@@ -62,7 +66,7 @@ class Wizard extends Component {
     this.mainRef = React.createRef()
     this.state = {
       score: 0,
-      page: 0,
+      page: 1,
       dimensions: {
         width: 0,
         height: 0,
@@ -146,7 +150,7 @@ class Wizard extends Component {
   }
 
   getValidationSchema = (page) => {
-    const validationSchemas = [PartSchema]
+    const validationSchemas = [PartSchema, EmailSchema]
     return validationSchemas[page]
   }
 
@@ -174,7 +178,7 @@ class Wizard extends Component {
     const { children } = this.props
     const { page, score } = this.state
     const activePage = React.Children.toArray(children)[page]
-    const initialValues = {}
+    const initialValues = { email: '' }
     wizardData.forEach((obj) => {
       initialValues[obj.name] = obj.value || ''
     })

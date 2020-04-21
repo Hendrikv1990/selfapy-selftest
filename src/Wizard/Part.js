@@ -88,9 +88,9 @@ const Styling = styled.div.attrs({
       width: 90%;
     }
   }
-  .error {
+  /* .error {
     border-color: #ff2843 !important;
-  }
+  } */
   .react-select__control {
     font-family: Archivo;
     font-size: 14px;
@@ -182,7 +182,6 @@ export const Part = ({
                   errors[part.name] && touched[part.name] ? 'error' : ''
                 } react-select`}
                 placeholder={intl.messages['form.select.placeholder']}
-                // menuIsOpen
               />
               {errors[part.name] && touched[part.name] && (
                 <div className="field-error">{errors[part.name]}</div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
 
@@ -27,6 +28,23 @@ const Styling = styled.div.attrs({
   .image-wrapper {
     flex: 0 1 50%;
   }
+  input {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #00140f;
+    top: -20px;
+    font-size: 14px;
+    color: #55706c;
+    transition: border 500ms ease-in-out;
+    &:focus,
+    &:hover {
+      outline: none;
+      border-bottom: 1px solid #058273;
+    }
+  }
 `
 
 export const Finish = (props) => {
@@ -36,6 +54,8 @@ export const Finish = (props) => {
     if (props.score < 20) return 'mittelgradige Depression'
     if (props.score < 28) return 'schwergradige Depression'
   }
+  const intl = useIntl()
+
   return (
     <Styling>
       <div className="hero-container">

@@ -1,4 +1,5 @@
 export const wizardData = [
+  // { name: 'email' },
   {
     name: 'part1',
     validationType: 'string',

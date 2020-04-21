@@ -10,6 +10,7 @@ const Styling = styled.div.attrs({
   }
   .hidden {
     visibility: hidden;
+    display: none;
   }
   width: 100%;
   display: flex;
@@ -118,9 +119,9 @@ export const Footer = React.memo(({ page, children, previous, width }) => {
         <SimpleButton className="hidden" name="button.start" />
       )}
       {/* {page === 0 && <SubmitButton name="button.start" />} */}
-      {page > 1 && <SimpleButton name="button.back" />}
+      {page > 0 && page < 2 && <SimpleButton name="button.back" />}
       <Pagination />
-      {page >= 0 && page < 1 && <SubmitButton name="button.next" />}
+      {page >= 0 && page < 2 && <SubmitButton name="button.next" />}
     </Styling>
   )
 })
