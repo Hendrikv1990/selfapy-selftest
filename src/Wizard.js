@@ -133,8 +133,8 @@ class Wizard extends Component {
     if (beforeLastPage) {
       let sum = 0
       for (let [key, value] of Object.entries(values)) {
-        console.log(`${key}: ${value}`)
-        sum = sum + Number(value)
+        console.log(`${key}: ${value.value}`)
+        sum = sum + Number(value.value)
       }
       this.setState({ score: sum })
       this.next(values)

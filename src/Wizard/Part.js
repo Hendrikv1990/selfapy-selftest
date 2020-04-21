@@ -1,72 +1,11 @@
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
-import { FieldArray } from 'formik'
 import React from 'react'
 // import { ReactComponent as AddSVG } from '../assets/add.svg'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
 import Start from './Start'
-
-const StyledFormControlLabel = withStyles({
-  root: {},
-  label: {
-    fontFamily: 'Lato',
-    fontSize: '16px',
-    fontWeight: 'normal',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: '1.5',
-    letterSpacing: 'normal',
-  },
-})(FormControlLabel)
-
-const useStyles = makeStyles({
-  root: {
-    '&:hover': {
-      backgroundColor: 'transparent',
-    },
-  },
-  icon: {
-    borderRadius: '50%',
-    width: 16,
-    height: 16,
-    boxShadow:
-      'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
-    backgroundColor: '#f5f8fa',
-    backgroundImage:
-      'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
-    '$root.Mui-focusVisible &': {
-      outline: '2px auto rgba(19,124,189,.6)',
-      outlineOffset: 2,
-    },
-    'input:hover ~ &': {
-      backgroundColor: '#ebf1f5',
-    },
-    'input:disabled ~ &': {
-      boxShadow: 'none',
-      background: 'rgba(206,217,224,.5)',
-    },
-  },
-  checkedIcon: {
-    backgroundColor: '#137cbd',
-    backgroundImage:
-      'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
-    '&:before': {
-      display: 'block',
-      width: 16,
-      height: 16,
-      backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
-      content: '""',
-    },
-    'input:hover ~ &': {
-      backgroundColor: '#106ba3',
-    },
-  },
-})
+import Select from 'react-select'
+import { useIntl } from 'react-intl'
 
 const Styling = styled.div.attrs({
   className: 'form-container',
@@ -114,6 +53,9 @@ const Styling = styled.div.attrs({
 
   .width-50 {
     flex: 0 1 50%;
+    @media ${device.tablet} {
+      flex: 0 1 100%;
+    }
   }
   .width-100 {
     flex: 0 1 100%;
@@ -138,22 +80,59 @@ const Styling = styled.div.attrs({
       letter-spacing: normal;
     }
   }
+  .question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .react-select__control {
+    font-family: Archivo;
+    font-size: 14px;
+    line-height: 1.43;
+    border-style: none;
+    border-radius: 4px;
+    border: solid 2px #bab5b5;
+    box-shadow: none;
+    transition: border 500ms ease-in-out;
+    background: transparent;
+    .react-select__value-container {
+      padding: 4px;
+    }
+    .react-select__indicators {
+      span {
+        display: none;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      padding-bottom: 0;
+      border: solid 2px #336670;
+    }
+  }
+  .react-select__menu {
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 0;
+    background-color: #fff;
+    .react-select__menu-list {
+      padding-bottom: 0;
+      padding-top: 0;
+      .react-select__option {
+        border-bottom: 1px solid transparent;
+        color: #55706c;
+      }
+      .react-select__option--is-focused {
+        cursor: pointer;
+        background-color: inherit;
+        color: #222;
+      }
+      .react-select__option--is-selected {
+        background-color: inherit;
+        color: #222;
+      }
+    }
+  }
 `
-
-const StyledRadio = (props) => {
-  const classes = useStyles()
-
-  return (
-    <Radio
-      className={classes.root}
-      disableRipple
-      color="default"
-      checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
-      icon={<span className={classes.icon} />}
-      {...props}
-    />
-  )
-}
 
 export const Part = ({
   errors,
@@ -162,7 +141,11 @@ export const Part = ({
   handleChange,
   handleBlur,
   parts,
+  setFieldTouched,
+  setFieldValue,
 }) => {
+  const intl = useIntl()
+
   return (
     <Styling>
       <Start />
@@ -176,33 +159,23 @@ export const Part = ({
       {parts.map((part, index) => {
         return (
           <div className="row-container" key={index}>
-            <div className="field-wrapper width-100">
+            <div className="field-wrapper width-50 question">
               <h4>{part.question}</h4>
-              <RadioGroup aria-label={part.name}>
-                <FieldArray
-                  name={part.name}
-                  render={(arrayHelpers) => (
-                    <div>
-                      {part.answers.map((ans) => (
-                        <div key={ans.value}>
-                          <StyledFormControlLabel
-                            control={
-                              <StyledRadio
-                                name={part.name}
-                                value={ans.value}
-                                checked={values[part.name] === ans.value}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                              />
-                            }
-                            label={ans.label}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                />
-              </RadioGroup>
+            </div>
+            <div className="field-wrapper width-50">
+              <Select
+                id={part.name}
+                onBlur={() => setFieldTouched(part.name, true)}
+                onChange={(value) => {
+                  return setFieldValue(part.name, value)
+                }}
+                name={part.name}
+                options={part.answers}
+                value={values[part.name]}
+                classNamePrefix="react-select"
+                placeholder={intl.messages['form.select.placeholder']}
+                // menuIsOpen
+              />
               {errors[part.name] && touched[part.name] && (
                 <div className="field-error">{errors[part.name]}</div>
               )}
