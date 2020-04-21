@@ -80,10 +80,13 @@ const Styling = styled.div.attrs({
       letter-spacing: normal;
     }
   }
-  .question {
+  .question-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .question {
+      width: 90%;
+    }
   }
   .react-select__control {
     font-family: Archivo;
@@ -159,8 +162,8 @@ export const Part = ({
       {parts.map((part, index) => {
         return (
           <div className="row-container" key={index}>
-            <div className="field-wrapper width-50 question">
-              <h4>{part.question}</h4>
+            <div className="field-wrapper width-50 question-wrapper">
+              <h4 className="question">{part.question}</h4>
             </div>
             <div className="field-wrapper width-50">
               <Select
