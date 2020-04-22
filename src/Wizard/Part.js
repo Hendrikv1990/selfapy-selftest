@@ -12,11 +12,16 @@ const Styling = styled.div.attrs({
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
+  .part-container {
+    padding: 1rem 2rem 0rem;
+    background: #f5f4f1;
+  }
   .row-container {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 2rem;
   }
   .column-container {
     flex: 0 1 100%;
@@ -80,10 +85,14 @@ const Styling = styled.div.attrs({
       letter-spacing: normal;
     }
   }
+  .answer-container {
+    margin: 0;
+  }
   .question-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0;
     .question {
       width: 90%;
     }
@@ -154,43 +163,46 @@ export const Part = React.memo(
     return (
       <Styling>
         <Start />
-        <div className="row-container">
-          <h3>
-            <FormattedMessage id="form.part.h1">
-              {(message) => message}
-            </FormattedMessage>
-          </h3>
+        <div className="part-container">
+          <div className="row-container">
+            <h3>
+              <FormattedMessage id="form.part.h1">
+                {(message) => message}
+              </FormattedMessage>
+            </h3>
+          </div>
+
+          {parts.map((part, index) => {
+            return (
+              <div className="row-container" key={index}>
+                <div className="field-wrapper width-50 question-wrapper">
+                  <h4 className="question">{part.question}</h4>
+                </div>
+                <div className="field-wrapper width-50 answer-container">
+                  <Select
+                    id={part.name}
+                    onBlur={() => setFieldTouched(part.name, true)}
+                    onChange={(value) => {
+                      return setFieldValue(part.name, value)
+                    }}
+                    name={part.name}
+                    options={part.answers}
+                    value={values[part.name]}
+                    classNamePrefix={`${
+                      errors[part.name] && touched[part.name] ? 'error' : ''
+                    } react-select`}
+                    placeholder={intl.messages['form.select.placeholder']}
+                    // menuIsOpen
+                    isSearchable={false}
+                  />
+                  {errors[part.name] && touched[part.name] && (
+                    <div className="field-error">{errors[part.name]}</div>
+                  )}
+                </div>
+              </div>
+            )
+          })}
         </div>
-        {parts.map((part, index) => {
-          return (
-            <div className="row-container" key={index}>
-              <div className="field-wrapper width-50 question-wrapper">
-                <h4 className="question">{part.question}</h4>
-              </div>
-              <div className="field-wrapper width-50">
-                <Select
-                  id={part.name}
-                  onBlur={() => setFieldTouched(part.name, true)}
-                  onChange={(value) => {
-                    return setFieldValue(part.name, value)
-                  }}
-                  name={part.name}
-                  options={part.answers}
-                  value={values[part.name]}
-                  classNamePrefix={`${
-                    errors[part.name] && touched[part.name] ? 'error' : ''
-                  } react-select`}
-                  placeholder={intl.messages['form.select.placeholder']}
-                  // menuIsOpen
-                  isSearchable={false}
-                />
-                {errors[part.name] && touched[part.name] && (
-                  <div className="field-error">{errors[part.name]}</div>
-                )}
-              </div>
-            </div>
-          )
-        })}
       </Styling>
     )
   },

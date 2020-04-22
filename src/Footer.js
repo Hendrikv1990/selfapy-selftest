@@ -6,6 +6,8 @@ import { device, sizes } from './assets/Styles'
 const Styling = styled.div.attrs({
   className: 'footer-wrapper',
 })`
+  background: #f5f4f1;
+  padding: 2rem;
   .footer-container {
   }
   .hidden {

@@ -22,8 +22,6 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     color: #49494b;
     font-size: 16px;
-
-;
   }
   @-webkit-keyframes autofill {
     0%,100% {
@@ -60,6 +58,9 @@ input:-webkit-autofill {
       line-height: 1.33;
       letter-spacing: normal;
       color: #49494b;
+      @media ${device.tablet} {
+      font-size: 16px;
+    }
     }
   p {
     font-family: Lato;

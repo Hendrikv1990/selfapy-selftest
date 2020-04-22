@@ -6,10 +6,12 @@ const Styling = styled.div.attrs({
   className: 'start-container',
 })`
   display: flex;
+  padding: 0 2rem;
+  background: #fff;
   @media ${device.phone} {
     display: block;
   }
-  margin-bottom: 3rem;
+  margin: 2rem 0 3rem 0;
   .hero-container {
     flex: 0 1 100%;
 

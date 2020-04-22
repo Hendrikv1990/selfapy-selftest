@@ -14,15 +14,15 @@ import { wizardData } from './wizardData'
 gsap.registerPlugin(CSSPlugin)
 
 const PartSchema = yup.object().shape({
-  part1: yup.string().required('Please choose on of the options'),
-  part2: yup.string().required('Please choose on of the options'),
-  part3: yup.string().required('Please choose on of the options'),
-  part4: yup.string().required('Please choose on of the options'),
-  part5: yup.string().required('Please choose on of the options'),
-  part6: yup.string().required('Please choose on of the options'),
-  part7: yup.string().required('Please choose on of the options'),
-  part8: yup.string().required('Please choose on of the options'),
-  part9: yup.string().required('Please choose on of the options'),
+  part1: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part2: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part3: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part4: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part5: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part6: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part7: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part8: yup.string().required('Bitte wähle ein Element aus der Liste'),
+  part9: yup.string().required('Bitte wähle ein Element aus der Liste'),
 })
 
 const EmailSchema = yup.object().shape({
@@ -33,7 +33,8 @@ const Styling = styled.div.attrs({
   className: 'wrapper',
 })`
   .main-wrapper {
-    margin: auto 7rem;
+    max-width: 1024px;
+    margin: 0 auto;
     position: relative;
     height: ${(props) => props.mainHeight}px;
     display: flex;
@@ -43,7 +44,6 @@ const Styling = styled.div.attrs({
     .main-container {
       border-radius: 10px;
       border: solid 1px #bab5b5;
-      padding: 2rem;
       width: 100%;
       position: absolute;
     }
