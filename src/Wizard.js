@@ -43,7 +43,7 @@ const Styling = styled.div.attrs({
     .main-container {
       border-radius: 10px;
       border: solid 1px #bab5b5;
-      padding: 4rem;
+      padding: 2rem;
       width: 100%;
       position: absolute;
     }
