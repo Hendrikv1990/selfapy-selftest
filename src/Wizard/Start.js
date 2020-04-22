@@ -7,7 +7,6 @@ const Styling = styled.div.attrs({
 })`
   display: flex;
   padding: 0 2rem;
-  background: #fff;
   @media ${device.phone} {
     display: block;
   }
@@ -35,12 +34,23 @@ export const Start = React.memo((props) => {
   return (
     <Styling>
       <div className="hero-container">
-        <h1>Habe ich eine Depression?</h1>
+        <h1>Herzlich Willkommen zu unserem Online-Selbsttest Depression!</h1>
         <p className="lead">
-          Grundlage dieses Tests ist der PHQ-9-Fragebogen, der als Screening
-          Instrument zur Feststellung des Schweregrads einer Depression
-          entwickelt wurde und der in den Nationalen Versorgungsleitlinien zur
-          Depressionsdiagnostik empfohlen wird.
+          Fragen wie “Habe ich eine Depression?” oder “Bin ich depressiv?”
+          lassen sich oftmals nicht leicht beantworten. Um dir die
+          Selbsteinschätzung zu erleichtern und dir einen Kurs anzubieten, der
+          so gut wie möglich auf dich und deine Probleme zugeschnitten ist,
+          wollen wir dir den folgenden Selbsttest zur Verfügung stellen.
+          Grundlage des Tests ist der sogenannte PHQ-9-Fragebogen. Dieser Test
+          wird in den nationalen Versorgungsrichtlinien zur Diagnostik von
+          Depressivität empfohlen und fragt die Symptome einer Depression ab. Es
+          ist jedoch kein Test im herkömmlichen Sinn, denn es gibt keine
+          richtigen oder falschen Antworten. Entscheide bei jeder Aussage,
+          welche Antwort am ehesten auf dich zutrifft.
+        </p>
+        <p>
+          Der Test kann Hinweise auf eine mögliche Depression geben, ersetzt
+          allerdings keine ärztliche Diagnose.{' '}
         </p>
       </div>
       <div className="image-wrapper"></div>

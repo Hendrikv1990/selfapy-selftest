@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
+import Checkbox from '@material-ui/core/Checkbox'
+import { FormattedMessage } from 'react-intl'
 
 const Styling = styled.div.attrs({
   className: 'subscribe-container',
@@ -9,6 +11,20 @@ const Styling = styled.div.attrs({
   justify-content: center;
   @media ${device.phone} {
     display: block;
+  }
+
+  .gdpr-wrapper {
+    position: relative;
+    padding: 1rem 0;
+    a {
+      padding-left: 1rem;
+      color: #55706c;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    span {
+      padding: 0;
+    }
   }
   margin-bottom: 3rem;
   button {
@@ -41,7 +57,7 @@ const Styling = styled.div.attrs({
   .row-container {
     display: flex;
     width: 100%;
-    flex-direction: column;
+    /* flex-direction: column; */
     position: relative;
   }
   .width-100 {
@@ -117,8 +133,11 @@ export const Subscribe = React.memo((props) => {
       <div className="column-wrapper">
         <div className="row-container">
           <div className="hero-container">
-            <h3>Please subscribe here to proceed</h3>
-            <p className="lead">You can write something here.</p>
+            <h3>Fast geschafft!</h3>
+            <p className="lead">
+              Trage dich für unseren Newsletter ein, um zu deinen
+              Testergebnissen zu gelangen!
+            </p>
           </div>
         </div>
         <div className="row-container">
@@ -133,12 +152,37 @@ export const Subscribe = React.memo((props) => {
               value={props.values['email']}
             />
             <button type="submit" className="button">
-              Subscribe
+              Hier geht es zu deinem Testergebnis.
             </button>
           </div>
           {props.touched['email'] && props.errors['email'] && (
             <div className="field-error">{props.errors['email']}</div>
           )}
+        </div>
+        <div className="row-container">
+          <div className="row-container gdpr-wrapper">
+            <Checkbox
+              helperText={
+                props.errors.gdpr && props.touched.gdpr && props.errors.gdpr
+              }
+              type="checkbox"
+              name="gdpr"
+              onChange={props.handleChange}
+              onBlur={props.handleBlur}
+            />
+            <a
+              href="https://www.google.gr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FormattedMessage id="form.gdbr">
+                {(message) => message}
+              </FormattedMessage>
+            </a>
+            {props.errors.gdpr && props.touched.gdpr && (
+              <div className="field-error">{props.errors.gdpr}</div>
+            )}
+          </div>
         </div>
       </div>
     </Styling>

@@ -2,6 +2,7 @@ export default {
   de: {
     form: {
       email: 'Email',
+      gdpr: 'Privacy policy',
       part: {
         h1:
           'Wie oft hast Du Dich in den letzten 2 Wochen durch folgende Beschwerden beeinträchtigt gefühlt?',

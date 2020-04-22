@@ -20,7 +20,7 @@ const Styling = styled.div.attrs({
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: flex-start;
     margin-bottom: 2rem;
   }
   .column-container {
