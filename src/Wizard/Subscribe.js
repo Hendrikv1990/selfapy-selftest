@@ -21,7 +21,7 @@ const Styling = styled.div.attrs({
     line-height: 1.5;
     font-weight: bold;
     @media ${device.tablet} {
-      border-radius: 25px;
+      border-radius: 4px;
       margin-top: 1rem;
       width: 100%;
     }
@@ -93,6 +93,7 @@ const Styling = styled.div.attrs({
     transition: border 500ms ease-in-out;
     @media ${device.tablet} {
       width: 100%;
+      border-radius: 4px;
     }
     &:focus,
     &:hover {
