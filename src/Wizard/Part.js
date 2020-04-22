@@ -182,6 +182,7 @@ export const Part = React.memo(
                   } react-select`}
                   placeholder={intl.messages['form.select.placeholder']}
                   // menuIsOpen
+                  isSearchable={false}
                 />
                 {errors[part.name] && touched[part.name] && (
                   <div className="field-error">{errors[part.name]}</div>

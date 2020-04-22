@@ -6,6 +6,9 @@ export default {
         h1:
           'Wie oft hast Du Dich in den letzten 2 Wochen durch folgende Beschwerden beeinträchtigt gefühlt?',
       },
+      select: {
+        placeholder: 'Selektieren',
+      },
     },
 
     finish: {
@@ -20,7 +23,7 @@ export default {
     button: {
       subscribe: 'Subscribe',
       start: 'Start',
-      next: 'Next',
+      next: 'Nächster',
       form: {
         submit: 'Weiter',
       },

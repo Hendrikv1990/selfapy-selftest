@@ -20,6 +20,11 @@ const Styling = styled.div.attrs({
     color: #49494b;
     line-height: 1.5;
     font-weight: bold;
+    @media ${device.tablet} {
+      border-radius: 25px;
+      margin-top: 1rem;
+      width: 100%;
+    }
     &:hover,
     &:focus {
       cursor: pointer;
@@ -69,6 +74,9 @@ const Styling = styled.div.attrs({
     align-items: center;
     margin-bottom: 45px;
     position: relative;
+    @media ${device.tablet} {
+      flex-direction: column;
+    }
   }
   input {
     padding: 1rem;
@@ -80,10 +88,12 @@ const Styling = styled.div.attrs({
     border: none;
     border: solid 2px #bab5b5;
     border-radius: 4px 0px 0px 4px;
-
     font-size: 14px;
     color: #55706c;
     transition: border 500ms ease-in-out;
+    @media ${device.tablet} {
+      width: 100%;
+    }
     &:focus,
     &:hover {
       outline: none;
