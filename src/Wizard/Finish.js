@@ -28,7 +28,7 @@ const A = ({ children, href }) => {
   const StyledA = styled.a`
     font-family: Archivo;
     font-weight: 600;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 24px;
     border: solid 2px #336670;
     background: #fff;
