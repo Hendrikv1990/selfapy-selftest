@@ -8,91 +8,204 @@ const Styling = styled.div.attrs({
 })`
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 3rem;
+  .actions {
+    margin-top: 2rem;
+    display: flex;
+  }
+  p {
+    margin: 0 0 0.5rem 0;
+  }
   @media ${device.phone} {
     display: block;
   }
   margin-bottom: 3rem;
-  .hero-container {
-    padding: 2rem;
-    flex: 0 1 100%;
-
-    span {
-      font-family: Archivo;
-      font-size: 14px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.14;
-      letter-spacing: normal;
-      color: #87898f;
-    }
-  }
-  .image-wrapper {
-    flex: 0 1 50%;
-  }
-  input {
-    width: 100%;
-    font-size: 14px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #00140f;
-    top: -20px;
-    font-size: 14px;
-    color: #55706c;
-    transition: border 500ms ease-in-out;
-    &:focus,
-    &:hover {
-      outline: none;
-      border-bottom: 1px solid #058273;
-    }
-  }
 `
 
-export const Finish = React.memo((props) => {
-  const level = () => {
-    if (props.score < 5) return 'first'
-    if (props.score < 15) return 'second'
-    if (props.score < 20) return 'third'
-    if (props.score < 28) return 'fourth'
-  }
+const A = ({ children, href }) => {
+  const StyledA = styled.a`
+    font-family: Archivo;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 24px;
+    border: solid 2px #336670;
+    background: #fff;
+    color: #336670;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    margin-right: 1rem;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  `
 
-  return (
-    <Styling>
-      <div className="hero-container">
+  return <StyledA href={href}>{children}</StyledA>
+}
+
+export const Finish = React.memo((props) => {
+  const First = () => {
+    return (
+      <React.Fragment>
         <h3>
-          <FormattedMessage id={`finish.${level()}.header`}>
+          <FormattedMessage id={`finish.first.header`}>
             {(message) => message}
           </FormattedMessage>
         </h3>
-        <p className="lead">
-          <FormattedMessage id={`finish.${level()}.p1`}>
+        <p>
+          <FormattedMessage id={`finish.first.p1`}>
+            {(message) => message}
+          </FormattedMessage>
+          <a
+            rel="noopener noreferrer"
+            href="https://www.selfapy.de/achtsamkeit/"
+          >
+            <FormattedMessage id={`finish.first.link1`}>
+              {(message) => message}
+            </FormattedMessage>
+          </a>
+        </p>
+
+        <p>
+          <FormattedMessage id={`finish.first.p2`}>
             {(message) => message}
           </FormattedMessage>
         </p>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.selfapy.de/achtsamkeit/"
-        >
-          <FormattedMessage id={`finish.${level()}.link1`}>
-            {(message) => message}
-          </FormattedMessage>
-        </a>
-        <p className="lead">
-          <FormattedMessage id={`finish.${level()}.p2`}>
+        <p>
+          <FormattedMessage id={`finish.first.p3`}>
             {(message) => message}
           </FormattedMessage>
         </p>
-        <p className="lead">
-          <FormattedMessage id={`finish.${level()}.p3`}>
+        <div className="actions">
+          <A href="https://www.selfapy.de/achtsamkeit/">Jetzt Kurs starten</A>
+          <A href="">Kostenloses Infogespräch</A>
+        </div>
+      </React.Fragment>
+    )
+  }
+
+  const Second = () => {
+    return (
+      <React.Fragment>
+        <h3>
+          <FormattedMessage id={`finish.second.header`}>
+            {(message) => message}
+          </FormattedMessage>
+        </h3>
+        <p>
+          <FormattedMessage id={`finish.second.p1`}>
+            {(message) => message}
+          </FormattedMessage>
+          <a
+            rel="noopener noreferrer"
+            href="https://www.selfapy.de/depression/"
+          >
+            <FormattedMessage id={`finish.second.link1`}>
+              {(message) => message}
+            </FormattedMessage>
+          </a>
+        </p>
+
+        <p>
+          <FormattedMessage id={`finish.second.p2`}>
             {(message) => message}
           </FormattedMessage>
         </p>
-      </div>
-      <div className="image-wrapper"></div>
-    </Styling>
-  )
+        <p>
+          <FormattedMessage id={`finish.second.p3`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <div className="actions">
+          <A href="https://www.selfapy.de/depression/">Jetzt Kurs starten</A>
+          <A href="">Kostenloses Infogespräch</A>
+        </div>
+      </React.Fragment>
+    )
+  }
+
+  const Third = () => {
+    return (
+      <React.Fragment>
+        <h3>
+          <FormattedMessage id={`finish.third.header`}>
+            {(message) => message}
+          </FormattedMessage>
+        </h3>
+        <p>
+          <FormattedMessage id={`finish.third.p1`}>
+            {(message) => message}
+          </FormattedMessage>
+          <a
+            rel="noopener noreferrer"
+            href="https://www.selfapy.de/depression/"
+          >
+            <FormattedMessage id={`finish.third.link1`}>
+              {(message) => message}
+            </FormattedMessage>
+          </a>
+        </p>
+
+        <p>
+          <FormattedMessage id={`finish.third.p2`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <p>
+          <FormattedMessage id={`finish.third.p3`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <div className="actions">
+          <A href="https://www.selfapy.de/depression/">Jetzt Kurs starten</A>
+          <A href="">Kostenloses Infogespräch</A>
+        </div>
+      </React.Fragment>
+    )
+  }
+
+  const Fourth = () => {
+    return (
+      <React.Fragment>
+        <h3>
+          <FormattedMessage id={`finish.third.header`}>
+            {(message) => message}
+          </FormattedMessage>
+        </h3>
+        <p>
+          <FormattedMessage id={`finish.third.p1`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+
+        <p>
+          <FormattedMessage id={`finish.third.p2`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <p>
+          <FormattedMessage id={`finish.third.p3`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+      </React.Fragment>
+    )
+  }
+
+  const result = () => {
+    return <First />
+    if (props.score < 5) return <First />
+    if (props.score < 15) return <Second />
+    if (props.score < 20) return <Third />
+    if (props.score < 28) return <Fourth />
+  }
+
+  return <Styling>{result()}</Styling>
 })
 
 export default Finish

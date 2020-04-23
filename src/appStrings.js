@@ -10,8 +10,6 @@ export default {
         p3:
           'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
         link1: 'https://www.selfapy.de/achtsamkeit/',
-        link2: 'https://www.selfapy.de/achtsamkeit/',
-        link3: '',
       },
       second: {
         header: 'Leichte Depression',
