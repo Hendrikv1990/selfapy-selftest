@@ -153,7 +153,7 @@ const Message = () => {
   useEffect(() => {
     const element = document.querySelector('.background')
     const timeline = new TimelineLite()
-    return timeline.to(
+    timeline.to(
       element,
       1,
       {
