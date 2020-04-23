@@ -2,6 +2,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { device, sizes } from './assets/Styles'
+import { useSelector } from 'react-redux'
 
 const Styling = styled.div.attrs({
   className: 'footer-wrapper',
@@ -59,13 +60,24 @@ const StyledSubmitButton = styled.button`
   &:focus {
     cursor: pointer;
   }
+  &:disabled,
+  button[disabled] {
+    opacity: 0.3;
+    cursor: default;
+  }
 `
 
-const SubmitButton = ({ name, color }) => {
-  console.log(color)
+const SubmitButton = ({ name, color, finalize }) => {
+  console.log(finalize)
+
   return (
     <div className="item">
-      <StyledSubmitButton color={color} type="submit" className="button">
+      <StyledSubmitButton
+        color={color}
+        type="submit"
+        className="button"
+        disabled={finalize}
+      >
         <FormattedMessage id={name}>{(message) => message}</FormattedMessage>
       </StyledSubmitButton>
     </div>
@@ -102,7 +114,12 @@ const SimpleButton = ({ name, className, previous }) => {
   )
 }
 
-export const Footer = React.memo(({ page, children, previous, width }) => {
+export const Footer = ({ page, children, previous, width }) => {
+  const finalize = useSelector((state) => {
+    console.log(!state.subscribe.finalize)
+    return state.subscribe.finalize
+  })
+
   const Pagination = () => {
     return (
       <div className="item pagination">
@@ -127,7 +144,10 @@ export const Footer = React.memo(({ page, children, previous, width }) => {
       )}
       <Pagination />
       {page >= 0 && page < 1 && <SubmitButton name="button.next" />}
+      {page === 1 && (
+        <SubmitButton name="button.results" finalize={!finalize} />
+      )}
     </Styling>
   )
-})
+}
 export default Footer

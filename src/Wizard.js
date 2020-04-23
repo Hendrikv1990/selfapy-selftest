@@ -8,9 +8,11 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import { device } from './assets/Styles'
-// import Debug from './Debug'
+import Debug from './Debug'
 import Footer from './Footer'
 import { wizardData } from './wizardData'
+import { connect } from 'react-redux'
+
 gsap.registerPlugin(CSSPlugin)
 
 const PartSchema = yup.object().shape({
@@ -27,6 +29,7 @@ const PartSchema = yup.object().shape({
 
 const EmailSchema = yup.object().shape({
   email: yup.string().email().required('Email is required'),
+  gdpr: yup.bool().oneOf([true], 'Must agree to Privacy Policy'),
 })
 
 const Styling = styled.div.attrs({
@@ -75,7 +78,6 @@ class Wizard extends Component {
 
   onResizeDebounced = debounce(() => {
     const element = document.querySelector('.main-container')
-    console.log(element)
 
     this.setState({
       dimensions: {
@@ -114,38 +116,40 @@ class Wizard extends Component {
     return activePage.props.validate ? activePage.props.validate(values) : {}
   }
 
-  submitForm = (values) => {
-    axios({
-      method: 'post',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      url: '',
-      data: values,
-    })
-      .then((response) => {
-        this.setState({ message: 'success' })
-      })
-      .catch((error) => {
-        this.setState({ message: 'failure' })
-      })
-  }
-
   handleSubmit = (values) => {
-    const { children } = this.props
     const { page } = this.state
-    const beforeLastPage = page === React.Children.count(children) - 2
-    const lastPage = page === React.Children.count(children) - 1
-    if (beforeLastPage) {
-      let sum = 0
-      for (let [key, value] of Object.entries(values)) {
-        if (!(key === 'email')) {
-          console.log(`${key}: ${value.value}`)
-          sum = sum + Number(value.value)
+    if (page === 1) {
+      if (this.props.finalize) {
+        this.next(values)
+      } else {
+        let sum = 0
+        for (let [key, value] of Object.entries(values)) {
+          if (!(key === 'email') && !(key === 'gdpr')) {
+            console.log(`${key}: ${value.value}`)
+            sum = sum + Number(value.value)
+          }
         }
+        this.setState({ score: sum })
+
+        const username = 'hila'
+        const password = 'hila'
+        const token = Buffer.from(`${username}:${password}`, 'utf8').toString(
+          'base64',
+        )
+        const url =
+          'https://selfapy.hkvlaanderen.com/wp-json/newsletter/v1/subscribe?email=web@hkvlaanderen.com'
+
+        axios
+          .post(url, {
+            headers: {
+              Authorization: `Basic ${token}`,
+            },
+          })
+          .then((response) => {
+            this.props.dispatch({ type: 'finalize' })
+          })
+          .catch((error) => {})
       }
-      this.setState({ score: sum })
-      this.next(values)
-    }
-    if (lastPage) {
     } else {
       this.next(values)
     }
@@ -189,7 +193,7 @@ class Wizard extends Component {
     const { children } = this.props
     const { page, score } = this.state
     const activePage = React.Children.toArray(children)[page]
-    const initialValues = { email: '' }
+    const initialValues = { email: '', gdpr: false }
     wizardData.forEach((obj) => {
       initialValues[obj.name] = obj.value || ''
     })
@@ -232,7 +236,7 @@ class Wizard extends Component {
                 </TransitionGroup>
               </div>
 
-              {/* {process.env.NODE_ENV === 'development' && <Debug />} */}
+              {process.env.NODE_ENV === 'development' && <Debug />}
             </form>
           )}
         </Formik>
@@ -241,4 +245,8 @@ class Wizard extends Component {
   }
 }
 
-export default Wizard
+const mapStateToProps = (state, ownProps) => ({
+  finalize: state.subscribe.finalize,
+})
+
+export default connect(mapStateToProps, null)(Wizard)

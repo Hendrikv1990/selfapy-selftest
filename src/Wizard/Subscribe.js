@@ -1,21 +1,43 @@
-import React from 'react'
+import Checkbox from '@material-ui/core/Checkbox'
+import React, { useEffect } from 'react'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
-import Checkbox from '@material-ui/core/Checkbox'
-import { FormattedMessage } from 'react-intl'
+import { gsap, Power3, TimelineLite } from 'gsap'
+import { useSelector } from 'react-redux'
+
+import { CSSPlugin } from 'gsap/CSSPlugin'
+gsap.registerPlugin(CSSPlugin)
 
 const Styling = styled.div.attrs({
   className: 'subscribe-container',
 })`
+  position: relative;
   display: flex;
   justify-content: center;
   @media ${device.phone} {
     display: block;
   }
-
+  .background {
+    position: absolute;
+    background: white;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
   .gdpr-wrapper {
     position: relative;
     padding: 1rem 0;
+    align-items: center;
+    .PrivateSwitchBase-input-10 {
+      width: 2rem;
+    }
     a {
       padding-left: 1rem;
       color: #55706c;
@@ -59,6 +81,7 @@ const Styling = styled.div.attrs({
     width: 100%;
     /* flex-direction: column; */
     position: relative;
+    padding-bottom: 1.2rem;
   }
   .width-100 {
     flex: 0 1 100%;
@@ -88,7 +111,6 @@ const Styling = styled.div.attrs({
   .field-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 45px;
     position: relative;
     @media ${device.tablet} {
       flex-direction: column;
@@ -127,9 +149,35 @@ const TextField = ({ error, name, label, ...props }) => {
   )
 }
 
+const Message = () => {
+  useEffect(() => {
+    const element = document.querySelector('.background')
+    const timeline = new TimelineLite()
+    return timeline.to(
+      element,
+      1,
+      {
+        ease: Power3.easeInOut,
+        autoAlpha: 0.95,
+      },
+      '-=0.5',
+    )
+  }, [])
+  return (
+    <div className="background">
+      <h4>Thank you for subscribing</h4>
+      <p>Click next to find your score.</p>
+    </div>
+  )
+}
+
 export const Subscribe = React.memo((props) => {
+  const finalize = useSelector((state) => {
+    return state.subscribe.finalize
+  })
   return (
     <Styling>
+      {finalize && <Message />}
       <div className="column-wrapper">
         <div className="row-container">
           <div className="hero-container">
@@ -152,7 +200,7 @@ export const Subscribe = React.memo((props) => {
               value={props.values['email']}
             />
             <button type="submit" className="button">
-              Hier geht es zu deinem Testergebnis.
+              Anmelden
             </button>
           </div>
           {props.touched['email'] && props.errors['email'] && (
@@ -162,10 +210,7 @@ export const Subscribe = React.memo((props) => {
         <div className="row-container">
           <div className="row-container gdpr-wrapper">
             <Checkbox
-              helperText={
-                props.errors.gdpr && props.touched.gdpr && props.errors.gdpr
-              }
-              type="checkbox"
+              color="default"
               name="gdpr"
               onChange={props.handleChange}
               onBlur={props.handleBlur}
@@ -175,7 +220,7 @@ export const Subscribe = React.memo((props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FormattedMessage id="form.gdbr">
+              <FormattedMessage id="form.gdpr">
                 {(message) => message}
               </FormattedMessage>
             </a>

@@ -1,5 +1,55 @@
 export default {
   de: {
+    finish: {
+      first: {
+        header: 'Keine depressiven Anzeichen',
+        p1:
+          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum Thema Stressmanagement & Achtsamkeit',
+        p2:
+          'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
+        p3:
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
+        link1: 'https://www.selfapy.de/achtsamkeit/',
+        link2: 'https://www.selfapy.de/achtsamkeit/',
+        link3: '',
+      },
+      second: {
+        header: 'Leichte Depression',
+        p1:
+          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum Thema Stressmanagement & Achtsamkeit',
+        p2:
+          'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
+        p3:
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
+        link1: 'https://www.selfapy.de/depression/',
+        link2: 'https://www.selfapy.de/depression/',
+        link3: '',
+      },
+      third: {
+        header: 'Mittelschwere Depression',
+        p1:
+          'Deinen Antworten nach zu urteilen, hast du in den letzten 2 Wochen eine Phase mittelschwerer depressiver Verstimmung erlebt. Wir empfehlen dir daher unseren Kurs zum Thema Depression ',
+        p2:
+          'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden die Kurse von einem persönlichen Ansprechpartner per Nachrichtenfunktion oder Telefon begleitet.',
+        p3:
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist',
+        link1: 'https://www.selfapy.de/depression/',
+        link2: 'https://www.selfapy.de/depression/',
+        link3: '',
+      },
+      fourth: {
+        header: 'Schwere Depression',
+        p1:
+          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen schwere Symptome einer Depression erlebt.',
+        p2:
+          'Dieses Ergebnis solltest du ernst nehmen und weitere Maßnahmen ergreifen, da bei schweren depressiven Symptomen eine Behandlung unbedingt notwendig ist. Wir empfehlen dir, zur weiteren Untersuchung einen Termin bei deinem Hausarzt oder einem Psychotherapeuten auszumachen.',
+        p3:
+          'Falls du dich gerade in einer akuten Krise befindest und sofortige Hilfe benötigst, wende dich bitte an die Telefonseelsorge (www.telefonseelsorge.de), die du unter der Nummer 0800 111 0 111 erreichst.',
+        link1: 'https://www.selfapy.de/depression/',
+        link2: 'https://www.selfapy.de/depression/',
+        link3: '',
+      },
+    },
     form: {
       email: 'Email',
       gdpr: 'Privacy policy',
@@ -12,23 +62,15 @@ export default {
       },
     },
 
-    finish: {
-      h1: 'DANKE FÜR DEINE REGISTRIERUNG!',
-      p:
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.',
-      download: 'DOWNLOAD WHOLESALE-KATALOG',
-      email: 'E-MAIL SCHREIBEN',
-      call: 'ANRUFEN',
-      shop: 'ZUM SHOP',
-    },
     button: {
-      subscribe: 'Subscribe',
+      subscribe: 'Anmelden',
       start: 'Start',
       next: 'Nächster',
       form: {
         submit: 'Weiter',
       },
       back: 'Zurück',
+      results: 'Hier geht es zu deinem Testergebnis',
     },
   },
 }

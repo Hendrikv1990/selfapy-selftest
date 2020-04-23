@@ -107,7 +107,7 @@ const Styling = styled.div.attrs({
     border: solid 2px #bab5b5;
     box-shadow: none;
     transition: border 500ms ease-in-out;
-    background: transparent;
+    background: #fff;
     .react-select__value-container {
       padding: 4px;
     }

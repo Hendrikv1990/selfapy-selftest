@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../assets/Styles'
+import { FormattedMessage } from 'react-intl'
 
 const Styling = styled.div.attrs({
-  className: 'start-container',
+  className: 'finish-container',
 })`
   display: flex;
+  justify-content: center;
   @media ${device.phone} {
     display: block;
   }
   margin-bottom: 3rem;
   .hero-container {
-    flex: 0 1 50%;
+    padding: 2rem;
+    flex: 0 1 100%;
 
     span {
       font-family: Archivo;
@@ -48,18 +51,43 @@ const Styling = styled.div.attrs({
 
 export const Finish = React.memo((props) => {
   const level = () => {
-    if (props.score < 5) return 'keine depressiven Anzeichen'
-    if (props.score < 15) return 'leichtgradige Depression'
-    if (props.score < 20) return 'mittelgradige Depression'
-    if (props.score < 28) return 'schwergradige Depression'
+    if (props.score < 5) return 'first'
+    if (props.score < 15) return 'second'
+    if (props.score < 20) return 'third'
+    if (props.score < 28) return 'fourth'
   }
 
   return (
     <Styling>
       <div className="hero-container">
-        <h3>{`Great job! Your score is ${props.score}`}.</h3>
+        <h3>
+          <FormattedMessage id={`finish.${level()}.header`}>
+            {(message) => message}
+          </FormattedMessage>
+        </h3>
         <p className="lead">
-          {`This means that your depression level is ${level()}`}
+          <FormattedMessage id={`finish.${level()}.p1`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.selfapy.de/achtsamkeit/"
+        >
+          <FormattedMessage id={`finish.${level()}.link1`}>
+            {(message) => message}
+          </FormattedMessage>
+        </a>
+        <p className="lead">
+          <FormattedMessage id={`finish.${level()}.p2`}>
+            {(message) => message}
+          </FormattedMessage>
+        </p>
+        <p className="lead">
+          <FormattedMessage id={`finish.${level()}.p3`}>
+            {(message) => message}
+          </FormattedMessage>
         </p>
       </div>
       <div className="image-wrapper"></div>
