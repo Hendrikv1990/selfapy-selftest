@@ -48,7 +48,8 @@ const Styling = styled.div.attrs({
 `
 const StyledSubmitButton = styled.button`
   font-family: Archivo;
-  width: 180px;
+  width: ${(props) => props.width};
+
   height: 48px;
   border-radius: 24px;
   border: solid 2px #336670;
@@ -67,12 +68,13 @@ const StyledSubmitButton = styled.button`
   }
 `
 
-const SubmitButton = ({ name, color, finalize }) => {
+const SubmitButton = ({ name, color, finalize, width }) => {
   console.log(finalize)
 
   return (
     <div className="item">
       <StyledSubmitButton
+        width={width}
         color={color}
         type="submit"
         className="button"
@@ -85,7 +87,7 @@ const SubmitButton = ({ name, color, finalize }) => {
 }
 const StyledSimpleButton = styled.button`
   font-family: Archivo;
-  width: 180px;
+  width: 150px;
   height: 48px;
   border-radius: 24px;
   border: solid 2px #336670;
@@ -143,9 +145,15 @@ export const Footer = ({ page, children, previous, width }) => {
         <SimpleButton previous={previous} name="button.back" />
       )}
       <Pagination />
-      {page >= 0 && page < 1 && <SubmitButton name="button.next" />}
+      {page >= 0 && page < 1 && (
+        <SubmitButton width="150px" name="button.next" />
+      )}
       {page === 1 && (
-        <SubmitButton name="button.results" finalize={!finalize} />
+        <SubmitButton
+          name="button.results"
+          width="250px"
+          finalize={!finalize}
+        />
       )}
     </Styling>
   )

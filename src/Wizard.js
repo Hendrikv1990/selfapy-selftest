@@ -68,7 +68,7 @@ class Wizard extends Component {
     super(props)
     this.state = {
       score: 0,
-      page: 0,
+      page: 1,
       dimensions: {
         width: 0,
         height: 0,

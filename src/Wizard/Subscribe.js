@@ -15,6 +15,10 @@ const Styling = styled.div.attrs({
   position: relative;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+  @media ${device.tablet} {
+    margin: 2rem;
+  }
   @media ${device.phone} {
     display: block;
   }
@@ -39,7 +43,7 @@ const Styling = styled.div.attrs({
       width: 2rem;
     }
     a {
-      padding-left: 1rem;
+      padding: 0 0.5rem;
       color: #55706c;
       text-decoration: none;
       font-size: 14px;
@@ -215,15 +219,15 @@ export const Subscribe = React.memo((props) => {
               onChange={props.handleChange}
               onBlur={props.handleBlur}
             />
+            Ich habe die
             <a
-              href="https://www.google.gr"
+              href="https://www.selfapy.de/privacy-policy/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FormattedMessage id="form.gdpr">
-                {(message) => message}
-              </FormattedMessage>
+              Datenschutzerklärung
             </a>
+            gelesen und akzeptiere sie.
             {props.errors.gdpr && props.touched.gdpr && (
               <div className="field-error">{props.errors.gdpr}</div>
             )}

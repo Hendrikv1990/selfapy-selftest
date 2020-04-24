@@ -6,6 +6,11 @@ import { FormattedMessage } from 'react-intl'
 const Styling = styled.div.attrs({
   className: 'finish-container',
 })`
+  h3 {
+    @media ${device.phone} {
+      margin-top: 0;
+    }
+  }
   a.button {
     font-family: Archivo;
     font-weight: 600;
@@ -24,15 +29,29 @@ const Styling = styled.div.attrs({
     &:focus {
       cursor: pointer;
     }
+    @media ${device.phone} {
+      margin: 0 0 1rem 0;
+    }
+  }
+  .yellow {
+    background-color: #fdc400 !important;
+    color: #49494b !important;
+    border: 2px solid transparent !important;
   }
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 2rem;
   margin: 0 3rem;
+  @media ${device.phone} {
+    margin: 0;
+  }
   .actions {
     margin-top: 2rem;
     display: flex;
+    @media ${device.phone} {
+      flex-direction: column;
+    }
   }
   p {
     margin: 0 0 0.5rem 0;
@@ -42,12 +61,6 @@ const Styling = styled.div.attrs({
   }
   margin-bottom: 3rem;
 `
-
-const A = ({ children, href }) => {
-  const StyledA = styled.a``
-
-  return <StyledA href={href}>{children}</StyledA>
-}
 
 export const Finish = React.memo((props) => {
   const First = () => {
@@ -83,7 +96,10 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <a className="button" href="https://www.selfapy.de/achtsamkeit/">
+          <a
+            className="button yellow"
+            href="https://www.selfapy.de/achtsamkeit/"
+          >
             Jetzt Kurs starten
           </a>
           <a
@@ -132,7 +148,10 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <a className="button" href="https://www.selfapy.de/depression/">
+          <a
+            className="button yellow"
+            href="https://www.selfapy.de/depression/"
+          >
             Jetzt Kurs starten
           </a>
           <a
@@ -181,7 +200,10 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <a className="button" href="https://www.selfapy.de/depression/">
+          <a
+            className="button yellow"
+            href="https://www.selfapy.de/depression/"
+          >
             Jetzt Kurs starten
           </a>
           <a
