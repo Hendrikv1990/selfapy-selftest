@@ -48,7 +48,7 @@ const Styling = styled.div.attrs({
 `
 const StyledSubmitButton = styled.button`
   font-family: Archivo;
-  width: 150px;
+  width: 180px;
   height: 48px;
   border-radius: 24px;
   border: solid 2px #336670;
@@ -85,7 +85,7 @@ const SubmitButton = ({ name, color, finalize }) => {
 }
 const StyledSimpleButton = styled.button`
   font-family: Archivo;
-  width: 150px;
+  width: 180px;
   height: 48px;
   border-radius: 24px;
   border: solid 2px #336670;

@@ -6,6 +6,25 @@ import { FormattedMessage } from 'react-intl'
 const Styling = styled.div.attrs({
   className: 'finish-container',
 })`
+  a.button {
+    font-family: Archivo;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    border: solid 2px #336670;
+    background: #fff;
+    color: #336670;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    margin-right: 1rem;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -25,25 +44,7 @@ const Styling = styled.div.attrs({
 `
 
 const A = ({ children, href }) => {
-  const StyledA = styled.a`
-    font-family: Archivo;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 24px;
-    border: solid 2px #336670;
-    background: #fff;
-    color: #336670;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: center;
-    margin-right: 1rem;
-    &:hover,
-    &:focus {
-      cursor: pointer;
-    }
-  `
+  const StyledA = styled.a``
 
   return <StyledA href={href}>{children}</StyledA>
 }
@@ -82,8 +83,17 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <A href="https://www.selfapy.de/achtsamkeit/">Jetzt Kurs starten</A>
-          <A href="">Kostenloses Infogespräch</A>
+          <a className="button" href="https://www.selfapy.de/achtsamkeit/">
+            Jetzt Kurs starten
+          </a>
+          <a
+            className="button"
+            data-toggle="modal"
+            data-target=".fusion-modal.test"
+            href="#"
+          >
+            Kostenloses Infogespräch
+          </a>
         </div>
       </React.Fragment>
     )
@@ -122,8 +132,17 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <A href="https://www.selfapy.de/depression/">Jetzt Kurs starten</A>
-          <A href="">Kostenloses Infogespräch</A>
+          <a className="button" href="https://www.selfapy.de/depression/">
+            Jetzt Kurs starten
+          </a>
+          <a
+            className="button"
+            data-toggle="modal"
+            data-target=".fusion-modal.test"
+            href="#"
+          >
+            Kostenloses Infogespräch
+          </a>
         </div>
       </React.Fragment>
     )
@@ -162,8 +181,17 @@ export const Finish = React.memo((props) => {
           </FormattedMessage>
         </p>
         <div className="actions">
-          <A href="https://www.selfapy.de/depression/">Jetzt Kurs starten</A>
-          <A href="">Kostenloses Infogespräch</A>
+          <a className="button" href="https://www.selfapy.de/depression/">
+            Jetzt Kurs starten
+          </a>
+          <a
+            className="button"
+            data-toggle="modal"
+            data-target=".fusion-modal.test"
+            href="#"
+          >
+            Kostenloses Infogespräch
+          </a>
         </div>
       </React.Fragment>
     )
@@ -198,7 +226,6 @@ export const Finish = React.memo((props) => {
   }
 
   const result = () => {
-    return <First />
     if (props.score < 5) return <First />
     if (props.score < 15) return <Second />
     if (props.score < 20) return <Third />

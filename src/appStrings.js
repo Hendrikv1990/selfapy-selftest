@@ -4,34 +4,34 @@ export default {
       first: {
         header: 'Keine depressiven Anzeichen',
         p1:
-          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum Thema Stressmanagement & Achtsamkeit',
+          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum ',
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
         p3:
           'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
-        link1: 'https://www.selfapy.de/achtsamkeit/',
+        link1: 'Thema Stressmanagement & Achtsamkeit',
       },
       second: {
         header: 'Leichte Depression',
         p1:
-          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum Thema Stressmanagement & Achtsamkeit',
+          'Deinen Antworten nach zu urteilen hast du in den vergangenen 2 Wochen keine Symptome einer Depression erlebt. Da du eventuell dennoch das Gefühl hast, dass dein Leben momentan nicht so verläuft, wie du es dir wünschst, empfehlen wir dir den Selfapy-Präventivkurs zum ',
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
         p3:
           'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
-        link1: 'https://www.selfapy.de/depression/',
+        link1: 'Thema Stressmanagement & Achtsamkeit',
         link2: 'https://www.selfapy.de/depression/',
         link3: '',
       },
       third: {
         header: 'Mittelschwere Depression',
         p1:
-          'Deinen Antworten nach zu urteilen, hast du in den letzten 2 Wochen eine Phase mittelschwerer depressiver Verstimmung erlebt. Wir empfehlen dir daher unseren Kurs zum Thema Depression ',
+          'Deinen Antworten nach zu urteilen, hast du in den letzten 2 Wochen eine Phase mittelschwerer depressiver Verstimmung erlebt. Wir empfehlen dir daher unseren Kurs zum  ',
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden die Kurse von einem persönlichen Ansprechpartner per Nachrichtenfunktion oder Telefon begleitet.',
         p3:
           'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist',
-        link1: 'https://www.selfapy.de/depression/',
+        link1: 'Thema Depression',
         link2: 'https://www.selfapy.de/depression/',
         link3: '',
       },
