@@ -39,6 +39,7 @@ const Styling = styled.div.attrs({
     position: relative;
     padding: 1rem 0;
     align-items: center;
+    display: block !important;
     .PrivateSwitchBase-input-10 {
       width: 2rem;
     }
@@ -62,6 +63,7 @@ const Styling = styled.div.attrs({
     color: #49494b;
     line-height: 1.5;
     font-weight: bold;
+    border: none;
     @media ${device.tablet} {
       border-radius: 4px;
       margin-top: 1rem;
