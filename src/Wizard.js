@@ -29,7 +29,7 @@ const PartSchema = yup.object().shape({
 
 const EmailSchema = yup.object().shape({
   email: yup.string().email().required('Email is required'),
-  gdpr: yup.bool().oneOf([true], 'Must agree to Privacy Policy'),
+  gdpr: yup.bool().oneOf([true], 'Bitte stimme der Datenschutzerklärung zu'),
 })
 
 const Styling = styled.div.attrs({
@@ -68,7 +68,7 @@ class Wizard extends Component {
     super(props)
     this.state = {
       score: 0,
-      page: 0,
+      page: 1,
       dimensions: {
         width: 0,
         height: 0,

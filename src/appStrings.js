@@ -56,7 +56,7 @@ export default {
           'Wie oft hast Du Dich in den letzten 2 Wochen durch folgende Beschwerden beeinträchtigt gefühlt?',
       },
       select: {
-        placeholder: 'Selektieren',
+        placeholder: 'Bitte auswählen',
       },
     },
 
@@ -68,7 +68,7 @@ export default {
         submit: 'Weiter',
       },
       back: 'Zurück',
-      results: 'Hier geht es zu deinem Testergebnis',
+      results: 'Dein Testergebnis',
     },
   },
 }

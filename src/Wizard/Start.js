@@ -53,7 +53,6 @@ export const Start = React.memo((props) => {
           allerdings keine ärztliche Diagnose.{' '}
         </p>
       </div>
-      <div className="image-wrapper"></div>
     </Styling>
   )
 })

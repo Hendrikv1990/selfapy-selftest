@@ -126,7 +126,7 @@ export const wizardData = [
         params: ['Please choose one of the options'],
       },
     ],
-    question: 'verminderter Appetit oder übermäßiges Bedürfnis zu essen',
+    question: 'Verminderter Appetit oder übermäßiges Bedürfnis zu essen',
     answers: [
       {
         value: '0',
@@ -157,7 +157,7 @@ export const wizardData = [
       },
     ],
     question:
-      'schlechte Meinung von Dir selbst; das Gefühl, ein Versager zu sein oder die Familie enttäuscht zu haben',
+      'Schlechte Meinung von Dir selbst; das Gefühl, ein Versager zu sein oder die Familie enttäuscht zu haben',
     answers: [
       {
         value: '0',

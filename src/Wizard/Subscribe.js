@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { device } from '../assets/Styles'
 import { gsap, Power3, TimelineLite } from 'gsap'
 import { useSelector } from 'react-redux'
-
+import arrowRight from '../assets/arrow-right.png'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 gsap.registerPlugin(CSSPlugin)
 
@@ -22,6 +22,7 @@ const Styling = styled.div.attrs({
   @media ${device.phone} {
     display: block;
   }
+
   .background {
     position: absolute;
     background: white;
@@ -55,24 +56,37 @@ const Styling = styled.div.attrs({
   }
   margin-bottom: 3rem;
   button {
-    font-family: Archivo;
-    width: 150px;
-    height: 3rem;
-    border-radius: 0px 4px 4px 0px;
-    background: #fdc400;
-    color: #49494b;
-    line-height: 1.5;
-    font-weight: bold;
+    position: absolute;
+    right: 0;
+    padding: 0;
+    background: none;
     border: none;
-    @media ${device.tablet} {
-      border-radius: 4px;
-      margin-top: 1rem;
-      width: 100%;
+    .image-wrapper {
+      width: 48px;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-center: center;
+      top: 0;
+      background-color: #fdc400;
+      border-radius: 100%;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background: #fdc400;
+      }
+      .image-container {
+        img {
+          width: 15px;
+          margin-top: 5px;
+        }
+      }
     }
-    &:hover,
-    &:focus {
-      cursor: pointer;
-      background: #fdc400;
+    @media ${device.tablet} {
     }
   }
 
@@ -122,16 +136,21 @@ const Styling = styled.div.attrs({
       flex-direction: column;
     }
   }
+  .row {
+    @media ${device.tablet} {
+      flex-direction: row;
+    }
+  }
   input {
     padding: 1rem;
     font-size: 14px;
     display: inline-block;
     height: 3rem;
-    width: 14rem;
-    margin-right: -2px;
+    width: 24rem;
+    margin-right: 20px;
     border: none;
     border: solid 2px #bab5b5;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 24px;
     font-size: 14px;
     color: #55706c;
     transition: border 500ms ease-in-out;
@@ -171,8 +190,8 @@ const Message = () => {
   }, [])
   return (
     <div className="background">
-      <h4>Thank you for subscribing</h4>
-      <p>Click next to find your score.</p>
+      <h4>Vielen Dank für deine Anmeldung.</h4>
+      <p>Klick weiter, um zu deinem Testergebnis zu gelangen.</p>
     </div>
   )
 }
@@ -195,7 +214,7 @@ export const Subscribe = React.memo((props) => {
           </div>
         </div>
         <div className="row-container">
-          <div className="field-wrapper width-100">
+          <div className="field-wrapper row width-100">
             <TextField
               name="email"
               type="email"
@@ -206,7 +225,11 @@ export const Subscribe = React.memo((props) => {
               value={props.values['email']}
             />
             <button type="submit" className="button">
-              Anmelden
+              <div className="image-wrapper">
+                <div className="image-container">
+                  <img src={arrowRight}></img>
+                </div>
+              </div>
             </button>
           </div>
           {props.touched['email'] && props.errors['email'] && (

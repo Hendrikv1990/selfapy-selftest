@@ -14,6 +14,7 @@ const Styling = styled.div.attrs({
   a.button {
     font-family: Archivo;
     font-weight: 600;
+    width: 250px;
     padding: 0.5rem 1rem;
     border-radius: 24px;
     border: solid 2px #336670;

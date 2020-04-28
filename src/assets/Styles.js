@@ -51,7 +51,7 @@ input:-webkit-autofill {
     h4 {
       margin: 0;
       font-family: Archivo;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
       font-stretch: normal;
       font-style: normal;
