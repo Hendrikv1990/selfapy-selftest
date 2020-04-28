@@ -28,7 +28,7 @@ const PartSchema = yup.object().shape({
 })
 
 const EmailSchema = yup.object().shape({
-  email: yup.string().email().required('Email is required'),
+  email: yup.string().email().required('Bitte E-Mail ausfüllen'),
   gdpr: yup.bool().oneOf([true], 'Bitte stimme der Datenschutzerklärung zu'),
 })
 
