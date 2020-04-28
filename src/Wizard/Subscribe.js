@@ -23,6 +23,11 @@ const Styling = styled.div.attrs({
     display: block;
   }
 
+  .full-width {
+    @media ${device.tablet} {
+      width: 100%;
+    }
+  }
   .background {
     position: absolute;
     background: white;
@@ -147,7 +152,6 @@ const Styling = styled.div.attrs({
     display: inline-block;
     height: 3rem;
     width: 24rem;
-    margin-right: 20px;
     border: none;
     border: solid 2px #bab5b5;
     border-radius: 24px;
@@ -156,7 +160,6 @@ const Styling = styled.div.attrs({
     transition: border 500ms ease-in-out;
     @media ${device.tablet} {
       width: 100%;
-      border-radius: 4px;
     }
     &:focus,
     &:hover {
@@ -214,7 +217,7 @@ export const Subscribe = React.memo((props) => {
           </div>
         </div>
         <div className="row-container">
-          <div className="field-wrapper row width-100">
+          <div className="field-wrapper row full-width">
             <TextField
               name="email"
               type="email"
