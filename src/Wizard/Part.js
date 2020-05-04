@@ -13,12 +13,16 @@ const Styling = styled.div.attrs({
   flex-wrap: wrap;
   width: 100%;
   .part-container {
+    width:100%;
     padding: 1rem 2rem 0rem;
     background: #f5f4f1;
   }
   .row-container {
     display: flex;
-    width: 100%;
+   width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right:auto;
     flex-wrap: wrap;
     align-items: flex-start;
     margin-bottom: 2rem;

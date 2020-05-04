@@ -8,7 +8,7 @@ export default {
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
         p3:
-          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
         link1: 'Thema Stressmanagement & Achtsamkeit',
       },
       second: {
@@ -18,7 +18,7 @@ export default {
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden unsere Kurse von einem Psychologen per Nachrichtenfunktion oder Telefon begleitet. ',
         p3:
-          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist.',
         link1: 'Thema Stressmanagement & Achtsamkeit',
         link2: 'https://www.selfapy.de/depression/',
         link3: '',
@@ -30,7 +30,7 @@ export default {
         p2:
           'Wie alle unsere Kurse ist auch dieser von erfahrenen Psychologen entwickelt und basiert auf Ansätzen der kognitiven Verhaltenstherapie. Zudem werden die Kurse von einem persönlichen Ansprechpartner per Nachrichtenfunktion oder Telefon begleitet.',
         p3:
-          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch [Link: ?]. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist',
+          'Außerdem empfehlen wir dir ein kostenloses Informationsgespräch. Im Rahmen dieses Gesprächs können wir deine Situation noch besser kennenlernen und dich persönlich und detailliert dazu beraten, welcher Kurs am besten auf deine Bedürfnisse abgestimmt ist',
         link1: 'Thema Depression',
         link2: 'https://www.selfapy.de/depression/',
         link3: '',

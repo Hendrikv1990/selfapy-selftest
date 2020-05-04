@@ -6,7 +6,9 @@ import { FormattedMessage } from 'react-intl'
 const Styling = styled.div.attrs({
   className: 'finish-container',
 })`
-  h3 {
+    max-width: 1024px;
+   
+  h1 {
     @media ${device.phone} {
       margin-top: 0;
     }
@@ -14,7 +16,7 @@ const Styling = styled.div.attrs({
   a.button {
     font-family: Archivo;
     font-weight: 600;
-    width: 250px;
+    width: 250px!important;
     padding: 0.5rem 1rem;
     border-radius: 24px;
     border: solid 2px #336670;
@@ -43,7 +45,8 @@ const Styling = styled.div.attrs({
   justify-content: center;
   flex-direction: column;
   padding: 2rem;
-  margin: 0 3rem;
+  margin-left:auto;
+  margin-right:auto;
   @media ${device.phone} {
     margin: 0;
   }
@@ -67,11 +70,11 @@ export const Finish = React.memo((props) => {
   const First = () => {
     return (
       <React.Fragment>
-        <h3>
+        <h1>
           <FormattedMessage id={`finish.first.header`}>
             {(message) => message}
           </FormattedMessage>
-        </h3>
+        </h1>
         <p>
           <FormattedMessage id={`finish.first.p1`}>
             {(message) => message}

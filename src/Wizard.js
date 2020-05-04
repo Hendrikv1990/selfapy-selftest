@@ -36,7 +36,7 @@ const Styling = styled.div.attrs({
   className: 'wrapper',
 })`
   .main-wrapper {
-    max-width: 1024px;
+        max-width: 100%;
     margin: 0 auto;
     position: relative;
     height: ${(props) => props.mainHeight}px;

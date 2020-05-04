@@ -17,12 +17,23 @@ const Styling = styled.div.attrs({
   justify-content: center;
   margin-top: 30px;
   @media ${device.tablet} {
-    margin: 2rem;
+    margin: 20px;
   }
   @media ${device.phone} {
     display: block;
   }
-
+   .field-wrapper {
+       max-width: 70%;
+        @media ${device.tablet} {
+            max-width:100%;
+        }
+    justify-content: space-around;
+    flex-flow: row wrap;
+    width: 100%;
+    .button {
+    width: 50px;
+    }
+    } 
   .full-width {
     @media ${device.tablet} {
       width: 100%;
@@ -102,8 +113,11 @@ const Styling = styled.div.attrs({
     }
   }
   .row-container {
+  width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
     display: flex;
-    width: 100%;
+   
     /* flex-direction: column; */
     position: relative;
     padding-bottom: 1.2rem;
