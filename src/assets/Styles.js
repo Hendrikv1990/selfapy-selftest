@@ -15,16 +15,7 @@ export default device
 
 export const GlobalStyle = createGlobalStyle`
   * { box-sizing: border-box; }
-  body a {
-  font-size: 16px;
-  }
-  body {
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 0.2px;
-    text-rendering: optimizeLegibility;
-    color: #49494b;
-    font-size: 16px;
-  }
+  
   @-webkit-keyframes autofill {
     0%,100% {
         color: #666;
@@ -43,13 +34,24 @@ input:-webkit-autofill {
     }
   h1 {
       font-family: Archivo!important;
-      font-size: 32px!important;
+      font-size: 36px!important;
       font-weight: 600!important;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.25;
       letter-spacing: normal;
       color: #49494b!important;
+      
+    }
+    h2 {
+      font-family: Archivo!important;
+      font-size: 24px!important;
+      font-weight: 600!important;
+    }
+    .hero-container {
+      h1 {
+      margin-bottom:10px!important;
+      }
     }
     h4 {
       margin: 0;
@@ -75,9 +77,18 @@ input:-webkit-autofill {
     letter-spacing: normal;
   }
   a {
-      color: #55706c!important;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
+    }
+    
+    .row-container {
+    font-family: Lato!important;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
     }
   
 `

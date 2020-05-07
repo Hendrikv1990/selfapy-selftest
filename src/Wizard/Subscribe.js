@@ -64,7 +64,7 @@ const Styling = styled.div.attrs({
       padding: 0 0.5rem;
       color: #55706c;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
     }
     span {
       padding: 0;
